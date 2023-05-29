@@ -7,9 +7,15 @@ h1 {
 .search-bar {
     display: flex;
     justify-content: right;
-    margin-right: 100px;
+    margin-right: 50px;
 }
 
 #search-input {
     margin-right: 10px;
+}
+
+#chartContainer {
+   height: 800px;
+   width: 800px; 
+   padding: 50px;
 }

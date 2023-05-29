@@ -3,7 +3,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("its working");
-    fetchPhysics();
+    fetchEconomics();
+    // fetchComputerScience();
   
   });
 
