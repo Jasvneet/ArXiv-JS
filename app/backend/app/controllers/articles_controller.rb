@@ -19,13 +19,7 @@ class ArticlesController < ApplicationController
       end
     end
     
-    def extract_categories(data)
-      categories = []
-      data.scan(/<setSpec>(.*?)<\/setSpec>/) do |match|
-        categories << match[0]
-      end
-      categories
-    end
+    
     
     def show
         category = params[:category]

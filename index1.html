@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Physics Article Visualization</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Physics Article Visualization</h1>
+
+  <canvas id="chart"></canvas>
+
+  <script>
+    const fetchArticleCountByYear = async () => {
+        
+      const categories = [astro-ph.CO, astro-ph.EP, astro-ph.GA, astro-ph.HE, astro-ph.IM, astro-ph.SR, cond-mat.dis-nn, cond-mat.mes-hall, cond-mat.mtrl-sci, cond-mat.other, cond-mat.quant-gas, cond-mat.soft, cond-mat.stat-mech,cond-mat.str-el, cond-mat.supr-con, gr-qc,  hep-ex, hep-lat, hep-ph, hep-th, math-ph, nlin.AO, nlin.CD, nlin.CG, nlin.PS, nlin.SI, nucl-ex, nucl-th, physics.acc-ph, physics.ao-ph, physics.app-ph, physics.atm-clus, physics.atom-ph, physics.bio-ph, physics.chem-ph, physics.class-ph, physics.comp-ph, physics.data-an, physics.ed-ph, physics.flu-dyn, physics.gen-ph, physics.geo-ph, physics.hist-ph, physics.ins-det, physics.med-ph, physics.optics, physics.plasm-ph, physics.pop-ph , physics.soc-ph, physics.space-ph, quant-ph  ];  
+      const category = 'physics';
+
+      const response = await fetch(`https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1000&sortBy=submittedDate&sortOrder=descending`);
+      const data = await response.text();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data, 'text/xml');
+      const entries = xmlDoc.getElementsByTagName('entry');
+
+      const articleCountByYear = {};
+
+      for (const entry of entries) {
+        const year = entry.getElementsByTagName('published')[0].textContent.substr(0, 4);
+        if (articleCountByYear[year]) {
+          articleCountByYear[year] += 1;
+        } else {
+          articleCountByYear[year] = 1;
+        }
+      }
+
+      return articleCountByYear;
+    };
+
+    const generateChart = async () => {
+      const articleCountByYear = await fetchArticleCountByYear();
+
+      const years = Object.keys(articleCountByYear);
+      const counts = Object.values(articleCountByYear);
+
+      const ctx = document.getElementById('chart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: years,
+          datasets: [{
+            label: 'Number of Articles',
+            data: counts,
+            backgroundColor: 'rgba(75, 192, 192, 0.8)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              precision: 0
+            }
+          }
+        }
+      });
+    };
+
+    generateChart();
+  </script>
+</body>
+</html>
