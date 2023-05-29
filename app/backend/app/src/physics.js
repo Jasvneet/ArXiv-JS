@@ -35,7 +35,9 @@ function fetchPhysics() {
     }, 15000);
 }
 
-totalResults.push(totalResult);
+
+// for visualizations 
+// totalResults.push(totalResult);
       
 // // Call the function to create the bar chart after all categories have been fetched
 // if (totalResults.length === categories.length) {
