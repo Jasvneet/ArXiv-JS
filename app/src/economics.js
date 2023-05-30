@@ -24,7 +24,7 @@ function fetchEconomics() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === economicsCategories.length) {
         createBarChart(economicsCategories, totalResults);
-        }
+        } 
         })
         .catch(function(error) {
         console.log('Error:', error);
@@ -66,7 +66,9 @@ function createBarChart(categories, totalResults) {
         }
       }
     });
-  }         
+  }        
+  
+
             
 //             totalSum += totalResults;
             

@@ -14,8 +14,25 @@ h1 {
     margin-right: 10px;
 }
 
-#chartContainer {
+#econChartContainer {
    height: 800px;
    width: 800px; 
    padding: 50px;
+   
+}
+
+.categoryButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 30px;
+}
+
+#economicsButton {
+    
+}
+
+ul li {
+    margin: 20px;
+    text-align: left;
 }

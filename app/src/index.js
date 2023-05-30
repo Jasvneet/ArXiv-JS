@@ -3,7 +3,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("its working");
-    fetchEconomics();
+    document.getElementById('economicsButton').addEventListener('click', function() {
+      fetchEconomics();
+    });
     // fetchComputerScience();
   
   });

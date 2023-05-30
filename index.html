@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./app/assets/stylesheets/reset.css"> 
-    <link rel="stylesheet" href="./app/assets/stylesheets/index.css"> 
+    <link rel="stylesheet" href="./app/backend/app/assets/stylesheets/reset.css"> 
+    <link rel="stylesheet" href="./app/backend/app/assets/stylesheets/index.css"> 
     <script src="./app/src/index.js"></script>
     <script src="./app/src/searchBar.js"></script>
     <script src="./app/src/physics.js"></script>
@@ -34,8 +34,36 @@
     <!-- Article counts by year will be displayed here -->
   </div>
 
-  <button id="economicsButton">Economics</button>
-  <div id="chartContainer">
+  <ul class="categoryButtons">
+    <li>
+      <button id="economicsButton">Economics</button>
+    </li>
+    <li> 
+      <button id="mathButton">Mathematics</button> 
+    </li>
+    <li>
+      <button id="csButton">Computer Science</button>
+    </li>
+    <li>
+      <button id="physicsButton">Physics</button>
+    </li>
+    <li> 
+      <button id="statsButton">Statistics</button>
+    </li>
+    <li> 
+      <button id="quantBioButton">Quantative Biology</button>
+    </li>
+    <li>
+      <button id="quantFinanceButton">Quantative Finance</button>
+    </li>
+    <li>
+      <button id="eeButton">Electrical Engineering & Systems Science</button>
+    </li>
+   
+  </ul>
+  
+
+  <div id="econChartContainer">
     <canvas id="economicsChart"></canvas>
   </div>
 
