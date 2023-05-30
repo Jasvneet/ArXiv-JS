@@ -5,7 +5,7 @@ function fetchEconomics() {
     
     // Fetch total results for each category
     economicsCategories.forEach(function(category) {
-        const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}`;
+        const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
         fetch(apiUrl)
         .then(function(response) {
@@ -33,7 +33,7 @@ function fetchEconomics() {
 }
             
 function createBarChart(categories, totalResults) {
-    const ctx = document.getElementById('esChart').getContext('2d');
+    const ctx = document.getElementById('econChart').getContext('2d');
     
     new Chart(ctx, {
       type: 'bar',

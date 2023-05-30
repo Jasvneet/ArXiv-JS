@@ -1,75 +1,76 @@
 
-// function fetchPhysics() {
-//     console.log('Physics')
-//     const physicsCategories = ['astro-ph.GA', 'astro-ph.HE', 'astro-ph.IM', 'astro-ph.SR', 'cond-mat.dis-nn', 'cond-mat.mes-hall', 'cond-mat.mtrl-sci', 'cond-mat.other', 'cond-mat.quant-gas', 'cond-mat.soft', 'cond-mat.stat-mech','cond-mat.str-el', 'cond-mat.supr-con', 'gr-qc',  'hep-ex', 'hep-lat', 'hep-ph', 'hep-th', 'math-ph', 'nlin.AO', 'nlin.CD', 'nlin.CG', 'nlin.PS', 'nlin.SI', 'nucl-ex', 'nucl-th', 'physics.acc-ph', 'physics.ao-ph', 'physics.app-ph', 'physics.atm-clus', 'physics.atom-ph', 'physics.bio-ph', 'physics.chem-ph', 'physics.class-ph', 'physics.comp-ph', 'physics.data-an', 'physics.ed-ph', 'physics.flu-dyn', 'physics.gen-ph', 'physics.geo-ph', 'physics.hist-ph', 'physics.ins-det', 'physics.med-ph', 'physics.optics', 'physics.plasm-ph', 'physics.pop-ph', 'physics.soc-ph', 'physics.space-ph', 'quant-ph']; 
+function fetchPhysics() {
+    console.log('Physics')
+    const physicsCategories = ['astro-ph.GA', 'astro-ph.HE', 'astro-ph.IM', 'astro-ph.SR', 'cond-mat.dis-nn', 'cond-mat.mes-hall', 'cond-mat.mtrl-sci', 'cond-mat.other', 'cond-mat.quant-gas', 'cond-mat.soft', 'cond-mat.stat-mech','cond-mat.str-el', 'cond-mat.supr-con', 'gr-qc',  'hep-ex', 'hep-lat', 'hep-ph', 'hep-th', 'math-ph', 'nlin.AO', 'nlin.CD', 'nlin.CG', 'nlin.PS', 'nlin.SI', 'nucl-ex', 'nucl-th', 'physics.acc-ph', 'physics.ao-ph', 'physics.app-ph', 'physics.atm-clus', 'physics.atom-ph', 'physics.bio-ph', 'physics.chem-ph', 'physics.class-ph', 'physics.comp-ph', 'physics.data-an', 'physics.ed-ph', 'physics.flu-dyn', 'physics.gen-ph', 'physics.geo-ph', 'physics.hist-ph', 'physics.ins-det', 'physics.med-ph', 'physics.optics', 'physics.plasm-ph', 'physics.pop-ph', 'physics.soc-ph', 'physics.space-ph', 'quant-ph']; 
 
 
-//     let totalResults = [];
+    let totalResults = [];
     
-//     // Fetch total results for each category
-//     physicsCategories.forEach(function(category) {
-//         const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}`;
-        
-//         fetch(apiUrl)
-//         .then(function(response) {
-//             return response.text();
-//         })
-//         .then(function(responseText) {
-//             const parser = new DOMParser();
-//             const xmlDoc = parser.parseFromString(responseText, 'text/xml');
-            
-//             const totalResultsElement = xmlDoc.getElementsByTagName('opensearch:totalResults')[0];
-//             const totalResult = parseInt(totalResultsElement.textContent);
+    // Fetch total results for each category
+    physicsCategories.forEach(function(category) {
+      const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
 
-//             totalResults.push(totalResult);
-//             console.log(totalResults)
       
-// // Call the function to create the bar chart after all categories have been fetched
-//         if (totalResults.length === physicsCategories.length) {
-//         createBarChart(physicsCategories, totalResults);
-//         }
-//         })
-//         .catch(function(error) {
-//         console.log('Error:', error);
-//         });
-//     });
-// }
+        fetch(apiUrl)
+        .then(function(response) {
+            return response.text();
+        })
+        .then(function(responseText) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(responseText, 'text/xml');
             
-// function createBarChart(categories, totalResults) {
-//     const ctx = document.getElementById('barChart').getContext('2d');
+            const totalResultsElement = xmlDoc.getElementsByTagName('opensearch:totalResults')[0];
+            const totalResult = parseInt(totalResultsElement.textContent);
+
+            totalResults.push(totalResult);
+            console.log(totalResults)
+      
+// Call the function to create the bar chart after all categories have been fetched
+        if (totalResults.length === physicsCategories.length) {
+        createBarChart(physicsCategories, totalResults);
+        }
+        })
+        .catch(function(error) {
+        console.log('Error:', error);
+        });
+    });
+}
+            
+function createBarChart(categories, totalResults) {
+    const ctx = document.getElementById('physicsChart').getContext('2d');
     
-//     new Chart(ctx, {
-//       type: 'bar',
-//       data: {
-//         labels: categories,
-//         datasets: [{
-//           label: 'Total Results',
-//           data: totalResults,
-//           backgroundColor: 'rgba(75, 192, 192, 0.6)',
-//           borderColor: 'rgba(75, 192, 192, 1)',
-//           borderWidth: 1
-//         }]
-//       },
-//       options: {
-//         responsive: true,
-//         scales: {
-//           y: {
-//             beginAtZero: true,
-//             title: {
-//               display: true,
-//               text: 'Total Results'
-//             }
-//           },
-//           x: {
-//             title: {
-//               display: true,
-//               text: 'Categories'
-//             }
-//           }
-//         }
-//       }
-//     });
-//   }         
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: categories,
+        datasets: [{
+          label: 'Total Results',
+          data: totalResults,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Total Results'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Categories'
+            }
+          }
+        }
+      }
+    });
+  }         
 
 
 

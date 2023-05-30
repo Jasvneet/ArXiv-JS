@@ -1,22 +1,72 @@
-// function fetchStatistics() {
+function fetchStatistics() {
     
-//     const statsCategories = ['stat.AP', 'stat.CO', 'stat.ME', 'stat.ML', 'stat.OT', 'stat.TH']; 
-//     let totalSum = 0;
+    const statsCategories = ['stat.AP', 'stat.CO', 'stat.ME', 'stat.ML', 'stat.OT', 'stat.TH']; 
+    let totalResults = [];
     
-//     // Fetch total results for each category
-//     statsCategories.forEach(function(category) {
-//         const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}`;
+    // Fetch total results for each category
+    statsCategories.forEach(function(category) {
+        const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
-//         fetch(apiUrl)
-//         .then(function(response) {
-//             return response.text();
-//         })
-//         .then(function(responseText) {
-//             const parser = new DOMParser();
-//             const xmlDoc = parser.parseFromString(responseText, 'text/xml');
+        fetch(apiUrl)
+        .then(function(response) {
+            return response.text();
+        })
+        .then(function(responseText) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(responseText, 'text/xml');
             
-//             const totalResultsElement = xmlDoc.getElementsByTagName('opensearch:totalResults')[0];
-//             const totalResults = parseInt(totalResultsElement.textContent);
+            const totalResultsElement = xmlDoc.getElementsByTagName('opensearch:totalResults')[0];
+            const totalResult = parseInt(totalResultsElement.textContent);
+
+            totalResults.push(totalResult);
+            console.log(totalResults)
+      
+// Call the function to create the bar chart after all categories have been fetched
+        if (totalResults.length === statsCategories.length) {
+        createBarChart(statsCategories, totalResults);
+        } 
+        })
+        .catch(function(error) {
+        console.log('Error:', error);
+        });
+    });
+}
+            
+function createBarChart(categories, totalResults) {
+    const ctx = document.getElementById('statsChart').getContext('2d');
+    
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: categories,
+        datasets: [{
+          label: 'Total Results',
+          data: totalResults,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Total Results'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Categories'
+            }
+          }
+        }
+      }
+    });
+  }  
             
 //             totalSum += totalResults;
             
