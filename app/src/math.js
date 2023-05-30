@@ -36,7 +36,8 @@ function fetchMath() {
     
     // Fetch total results for each category
     mathCategories.forEach(function(category) {
-      const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}`;
+      const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
+      
       
         
         fetch(apiUrl)
@@ -85,7 +86,7 @@ function createMathBarChart(categories, totalResults) {
       font: {
         family: 'Arial, sans-serif', // Change this to your desired font family
         size: 18, // Change this to your desired font size
-        color: 'royalblue' // Change this to your desired font color
+        color: 'black' // Change this to your desired font color
       }
     },
     xaxis: {
@@ -94,7 +95,7 @@ function createMathBarChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },
@@ -104,7 +105,7 @@ function createMathBarChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },

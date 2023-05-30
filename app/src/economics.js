@@ -51,11 +51,27 @@ function createBarECONChart(categories, totalResults) {
   const layout = {
     title: 'Number of Articles Published per Subcategory',
     xaxis: {
-      title: 'Subcategory'
+      title: {
+        text: 'Subcategory',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'black' // Change this to your desired font color
+        }
+      },
     },
     yaxis: {
-      title: 'Article Count'
-    }
+      title: {
+        text: 'Article Count',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'black' // Change this to your desired font color
+        }
+      },
+    },
+    plot_bgcolor: 'white', // Change this color to your desired background color
+    paper_bgcolor: 'skyblue' // Change this color to your desired background color
   };
   
   Plotly.newPlot('econChartContainer', data, layout);

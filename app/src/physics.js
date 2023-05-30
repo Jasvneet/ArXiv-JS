@@ -56,7 +56,7 @@ function createBarPhysChart(categories, totalResults) {
       font: {
         family: 'Arial, sans-serif', // Change this to your desired font family
         size: 18, // Change this to your desired font size
-        color: 'royalblue' // Change this to your desired font color
+        color: 'black' // Change this to your desired font color
       }
     },
     xaxis: {
@@ -65,7 +65,7 @@ function createBarPhysChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },
@@ -75,7 +75,7 @@ function createBarPhysChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },

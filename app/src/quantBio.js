@@ -15,7 +15,8 @@ function fetchQuantBio() {
     
     // Fetch total results for each category
     qBioCategories.forEach(function(category) {
-        const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}`;
+      const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
+        
          
         
         fetch(apiUrl)
@@ -63,7 +64,7 @@ function createBarQBChart(categories, totalResults) {
       font: {
         family: 'Arial, sans-serif', // Change this to your desired font family
         size: 18, // Change this to your desired font size
-        color: 'royalblue' // Change this to your desired font color
+        color: 'black' // Change this to your desired font color
       }
     },
     xaxis: {
@@ -72,7 +73,7 @@ function createBarQBChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },
@@ -82,7 +83,7 @@ function createBarQBChart(categories, totalResults) {
         font: {
           family: 'Arial, sans-serif', // Change this to your desired font family
           size: 18, // Change this to your desired font size
-          color: 'blue' // Change this to your desired font color
+          color: 'black' // Change this to your desired font color
         }
       },
     },

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./app/backend/app/assets/stylesheets/reset.css"> 
-    <link rel="stylesheet" href="./app/backend/app/assets/stylesheets/index.css"> 
+    <link rel="stylesheet" href="./app/stylesheets/reset.css"> 
+    <link rel="stylesheet" href="./app/stylesheets/index.css"> 
     <script src="./app/src/index.js"></script>
     <script src="./app/src/searchBar.js"></script>
     <script src="./app/src/physics.js"></script>
@@ -38,35 +38,60 @@
   <div class="container">
     <ul class="categoryButtons">
       <li>
-        <button id="economicsButton"> Economics</button>
+        <button id="economicsButton" class="tooltip"> 
+          <img src="images/economic.png" alt="Icon" class="flaticon-icon">
+          <span class="tooltip-text">Economics</span>
+        </button>
       </li>
   
       <li>
-        <button id="csButton"> Computer Science</button>
+        <button id="csButton" class="tooltip"> 
+          <img src="images/code.png" alt="Icon" class="flaticon-icon">
+          <span class="tooltip-text">Computer Science</span>
+        </button>
       </li>
   
       <li> 
-        <button id="mathButton"> Mathematics</button> 
+        <button id="mathButton" class="tooltip"> 
+          <img src="images/maths.png" alt="Icon" class="flaticon-icon">
+          <span class="tooltip-text">Mathematics</span>
+        </button> 
       </li>
   
       <li> 
-        <button id="quantBioButton">Quantative Biology</button>
+        <button id="quantBioButton" class="tooltip">
+          <img src="images/dna.png" alt="Icon" class="flaticon-icon">
+          <span class="tooltip-text">Quantitative Biology</span>
+        </button>
       </li>
       
       <li>
-        <button id="physicsButton">Physics</button>
+        <button id="physicsButton" class="tooltip">
+          <img src="images/physics.png" alt="Icon" class="flaticon-icon">
+          <span class="tooltip-text">Physics</span>
+        </button>
       </li>
   
       <li>
-        <button id="quantFinanceButton"> Quantative Finance</button>
+        <button id="quantFinanceButton" class="tooltip"> 
+          <img src="images/economics.png" alt="Icon" class="flaticon-icon"> 
+          <span class="tooltip-text">Quantitative Finance</span>
+        </button>
       </li>
   
       <li> 
-        <button id="statsButton"> Statistics</button>
+        <button id="statsButton" class="tooltip">
+          <img src="images/analytics.png" alt="Icon" class="flaticon-icon"> 
+          <span class="tooltip-text">Statistics</span>
+        </button>
       </li>
      
       <li>
-        <button id="eeButton"> Electrical Engineering & Systems Science</button>
+        <button id="eeButton" class="tooltip" >  
+          <img src="images/electronic-circuit.png" alt="Icon" class="flaticon-icon"> 
+          <span class="tooltip-text">Electrical Engineering & Systems Science</span>
+          
+        </button>
       </li>
      
     </ul>
