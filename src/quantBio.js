@@ -1,4 +1,4 @@
-function fetchQuantBio() {
+export function fetchQuantBio() {
     
     const qBioCategories = categories = [
             "q-bio.BM",

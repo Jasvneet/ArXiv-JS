@@ -1,4 +1,4 @@
-function fetchStatistics() {
+export function fetchStatistics() {
     
     const statsCategories = ['stat.AP', 'stat.CO', 'stat.ME', 'stat.ML', 'stat.OT', 'stat.TH']; 
     let totalResults = [];

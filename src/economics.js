@@ -1,4 +1,4 @@
-function fetchEconomics() {
+export function fetchEconomics() {
     
     const economicsCategories = ['econ.EM', 'econ.GN', 'econ.TH']; 
     let totalResults = [];

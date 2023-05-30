@@ -1,4 +1,4 @@
-function fetchComputerScience() {
+export function fetchComputerScience() {
     
     const csCategories = ['cs.AI', 'cs.AR', 'cs.CC', 'cs.CE', 'cs.CG',
         'cs.CL', 'cs.CR', 'cs.CV', 'cs.CY', 'cs.DB',
