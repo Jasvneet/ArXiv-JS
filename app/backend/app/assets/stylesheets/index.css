@@ -1,7 +1,17 @@
 h1 {
     text-align: center;
     font-size: 50px;
-    
+    color: black;
+    margin-top: 40px;
+    font-family: 'Lilita One', cursive;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+
+body {
+    background-color: deepskyblue;
 }
 
 .search-bar {
@@ -10,33 +20,118 @@ h1 {
     margin-right: 50px;
 }
 
+
 #search-input {
     margin-right: 10px;
 }
 
-#chartContainer {
-   height: 800px;
-   width: 800px; 
+.chartContainer {
+   height: 1000px;
+   width: 1200px; 
    padding: 50px;
+   margin-top: 100px;
+   display: flex;
    
+  
 }
 
 .categoryButtons {
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    padding: 30px;
-}
-
-#economicsButton {
+    flex-direction: column;
+    padding: 5px;
+    margin-top: 200px;
+    height: 400px;
     
 }
 
-ul li {
-    margin: 20px;
-    text-align: left;
+button {
+    border-radius: 4px;
+    background-color: white;
+    color: deepskyblue;
+    width: 60%;
+    border-color: rgb(8, 168, 232);
+    font-family: 'Lilita One', cursive;
+    height: 100%;
+    flex-direction: left;
+    border-style: 30px solid skyblue;
 }
 
-/* .chartContainer {
-    display: none;
-  } */
+button:hover {
+    background-color: darkorange;
+    color: black;
+    border-color: orange;
+}
+
+.search-button {
+    width: 10%;
+    background-color: black;
+    color: white;
+    border-color: darkslategray;
+}
+
+.search-button:hover {
+    background-color: deeppink;
+}
+
+/* #economicsButton {
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    font-family: sans-serif;
+    
+}
+
+#mathButton {
+    background-color: blue;
+    color: white;
+
+}
+
+#csButton {
+    background-color: darkorange;
+    color: white;
+    
+}
+
+#eeButton {
+    background-color: purple;
+    color: white;
+    
+}
+
+#quantBioButton {
+    background-color: darkcyan;
+    color: white;
+    
+}
+
+#quantFinanceButton {
+    background-color: darkred;
+    color: white;
+    
+}
+
+#physicsButton {
+    background-color: darkturquoise;
+    color: white;
+}
+
+#statsButton {
+    background-color: deepskyblue;
+    color: white;
+} */
+
+ul li {
+    margin: 20px;
+    text-align: center;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    
+    
+  }

@@ -17,12 +17,17 @@
     <script src="./app/src/quantFinance.js"></script>
     <script src="./app/src/statistics.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <h1> ArXiv Insights </h1>
     
-</body>
+  <h1> ArXiv Insights </h1>
+
 <form id="search-form">
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search articles..." />
@@ -30,49 +35,58 @@
     </div>
   </form>
 
+  <div class="container">
+    <ul class="categoryButtons">
+      <li>
+        <button id="economicsButton"> Economics</button>
+      </li>
   
-  <div id="category-buttons">
-    <!-- Buttons will be dynamically added here -->
-  </div>
+      <li>
+        <button id="csButton"> Computer Science</button>
+      </li>
   
-  <div id="article-list">
-    <!-- Article counts by year will be displayed here -->
+      <li> 
+        <button id="mathButton"> Mathematics</button> 
+      </li>
+  
+      <li> 
+        <button id="quantBioButton">Quantative Biology</button>
+      </li>
+      
+      <li>
+        <button id="physicsButton">Physics</button>
+      </li>
+  
+      <li>
+        <button id="quantFinanceButton"> Quantative Finance</button>
+      </li>
+  
+      <li> 
+        <button id="statsButton"> Statistics</button>
+      </li>
+     
+      <li>
+        <button id="eeButton"> Electrical Engineering & Systems Science</button>
+      </li>
+     
+    </ul>
+    
+  
+    <div id="econChartContainer" class="chartContainer">
+      <canvas id="econChart"></canvas>
+    </div>
+
   </div>
 
-  <ul class="categoryButtons">
-    <li>
-      <button id="economicsButton">Economics</button>
-    </li>
-    <li> 
-      <button id="mathButton">Mathematics</button> 
-    </li>
-    <li>
-      <button id="csButton">Computer Science</button>
-    </li>
-    <li>
-      <button id="physicsButton">Physics</button>
-    </li>
-    <li> 
-      <button id="statsButton">Statistics</button>
-    </li>
-    <li> 
-      <button id="quantBioButton">Quantative Biology</button>
-    </li>
-    <li>
-      <button id="quantFinanceButton">Quantative Finance</button>
-    </li>
-    <li>
-      <button id="eeButton">Electrical Engineering & Systems Science</button>
-    </li>
-   
-  </ul>
+</body>
+
+
+
+ 
+
   
 
-  <div id="econChartContainer" class="chartContainer">
-    <canvas id="econChart"></canvas>
-  </div>
-
-  <div id="mathChartContainer" class="chartContainer">
+  <!-- <div id="mathChartContainer" class="chartContainer">
     <canvas id="mathChart"></canvas>
   </div>
 
@@ -98,6 +112,6 @@
 
   <div id="statsChartContainer" class="chartContainer">
     <canvas id="statsChart"></canvas>
-  </div>
+  </div> -->
 
 </html>

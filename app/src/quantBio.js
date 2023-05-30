@@ -15,7 +15,8 @@ function fetchQuantBio() {
     
     // Fetch total results for each category
     qBioCategories.forEach(function(category) {
-        const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}`;
+        const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}`;
+         
         
         fetch(apiUrl)
         .then(function(response) {
@@ -33,7 +34,7 @@ function fetchQuantBio() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === qBioCategories.length) {
-        createBarChart(qBioCategories, totalResults);
+        createBarQBChart(qBioCategories, totalResults);
         } 
         })
         .catch(function(error) {
@@ -42,41 +43,97 @@ function fetchQuantBio() {
     });
 }
             
-function createBarChart(categories, totalResults) {
-    const ctx = document.getElementById('qBioChart').getContext('2d');
-    
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: categories,
-        datasets: [{
-          label: 'Total Results',
-          data: totalResults,
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Total Results'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Categories'
-            }
-          }
-        }
+function createBarQBChart(categories, totalResults) {
+  const data = [{
+    x: categories,
+    y: totalResults,
+    type: 'bar',
+    marker: {
+      color: 'orange', // Change this color to your desired color
+      line: {
+        color: 'black', // Set the bar border color
+        width: 1 // Set the bar border width
       }
-    });
-  }        
+    }
+  }];
+  
+  const layout = {
+    title: {
+      text: 'Number of Articles Published per Subcategory',
+      font: {
+        family: 'Arial, sans-serif', // Change this to your desired font family
+        size: 18, // Change this to your desired font size
+        color: 'royalblue' // Change this to your desired font color
+      }
+    },
+    xaxis: {
+      title: {
+        text: 'Subcategory',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'blue' // Change this to your desired font color
+        }
+      },
+    },
+    yaxis: {
+      title: {
+        text: 'Article Count',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'blue' // Change this to your desired font color
+        }
+      },
+    },
+    plot_bgcolor: 'white', // Change this color to your desired background color
+    paper_bgcolor: 'skyblue' // Change this color to your desired background color
+
+
+  };
+  
+  Plotly.newPlot('econChartContainer', data, layout);
+  
+}  
+
+
+
+
+
+  //   const ctx = document.getElementById('econChart').getContext('2d');
+    
+  //   new Chart(ctx, {
+  //     type: 'bar',
+  //     data: {
+  //       labels: categories,
+  //       datasets: [{
+  //         label: 'Total Results',
+  //         data: totalResults,
+  //         backgroundColor: 'rgba(75, 192, 192, 0.6)',
+  //         borderColor: 'rgba(75, 192, 192, 1)',
+  //         borderWidth: 1
+  //       }]
+  //     },
+  //     options: {
+  //       responsive: true,
+  //       scales: {
+  //         y: {
+  //           beginAtZero: true,
+  //           title: {
+  //             display: true,
+  //             text: 'Total Results'
+  //           }
+  //         },
+  //         x: {
+  //           title: {
+  //             display: true,
+  //             text: 'Categories'
+  //           }
+  //         }
+  //       }
+  //     }
+  //   });
+  // }        
 
 //             totalSum += totalResults;
             

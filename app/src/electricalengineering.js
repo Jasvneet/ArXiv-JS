@@ -24,7 +24,7 @@ function fetchElectricalEngineering() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === eeCategories.length) {
-        createBarChart(eeCategories, totalResults);
+        createEEBarChart(eeCategories, totalResults);
         } 
         })
         .catch(function(error) {
@@ -33,41 +33,58 @@ function fetchElectricalEngineering() {
     });
 }
             
-function createBarChart(categories, totalResults) {
-    const ctx = document.getElementById('eeChart').getContext('2d');
-    
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: categories,
-        datasets: [{
-          label: 'Total Results',
-          data: totalResults,
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Total Results'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Categories'
-            }
-          }
-        }
+function createEEBarChart(categories, totalResults) {
+  const data = [{
+    x: categories,
+    y: totalResults,
+    type: 'bar',
+    marker: {
+      color: 'orange', // Change this color to your desired color
+      line: {
+        color: 'black', // Set the bar border color
+        width: 1 // Set the bar border width
       }
-    });
-  }
+    }
+  }];
+  
+  const layout = {
+    title: {
+      text: 'Number of Articles Published per Subcategory',
+      font: {
+        family: 'Arial, sans-serif', // Change this to your desired font family
+        size: 18, // Change this to your desired font size
+        color: 'royalblue' // Change this to your desired font color
+      }
+    },
+    xaxis: {
+      title: {
+        text: 'Subcategory',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'blue' // Change this to your desired font color
+        }
+      },
+    },
+    yaxis: {
+      title: {
+        text: 'Article Count',
+        font: {
+          family: 'Arial, sans-serif', // Change this to your desired font family
+          size: 18, // Change this to your desired font size
+          color: 'blue' // Change this to your desired font color
+        }
+      },
+    },
+    plot_bgcolor: 'white', // Change this color to your desired background color
+    paper_bgcolor: 'skyblue' // Change this color to your desired background color
+
+
+  };
+  
+  Plotly.newPlot('econChartContainer', data, layout);
+ 
+}  
             
 //             totalSum += totalResults;
             
