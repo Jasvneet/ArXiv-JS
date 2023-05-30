@@ -6,10 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('economicsButton').addEventListener('click', function() {
       fetchEconomics();
     });
+    document.getElementById('mathButton').addEventListener('click', function() {
+      fetchMath();
+    });
+  
+    
     // fetchComputerScience();
   
   });
 
+ 
 
 
   
