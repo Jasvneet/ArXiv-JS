@@ -1,10 +1,13 @@
+import { displayAuthorStats } from "./authors";
+
 export function handleSubmit(event) {
   event.preventDefault(); // Prevent the form from submitting
 
-  const searchTerm = document.getElementById('search-input').value; // Get the search term
+  const searchTerm = document.getElementById('search-input').value;
+  const max = 10 // Get the search term
 
   // Send a request to the arXiv API
-  fetch(`https://export.arxiv.org/api/query?search_query=all:${searchTerm}&sortBy=submittedDate&sortOrder=descending&max_results=10`, {
+  fetch(`https://export.arxiv.org/api/query?search_query=ti:${searchTerm}&sortBy=submittedDate&sortOrder=descending&max_results=${max}`, {
     method: 'GET'
   })
     .then(response => response.text())
@@ -18,7 +21,7 @@ export function handleSubmit(event) {
       resultsDiv.innerHTML = ''; // Clear previous results
 
       const totalResultsEle = document.createElement('h3');
-      totalResultsEle.textContent = `Total Articles: ${totalResult}`;
+      totalResultsEle.textContent = `Showing 10 out of ${totalResult} total articles`;
       resultsDiv.appendChild(totalResultsEle);
 
       const entries = xmlDoc1.getElementsByTagName('entry');
@@ -47,9 +50,10 @@ export function handleSubmit(event) {
         const summaryElement = document.createElement('p');
         summaryElement.textContent = summary;
       
-        articleDetailsContainer.appendChild(authorsList);
+        
         articleDetailsContainer.appendChild(summaryHeading);
         articleDetailsContainer.appendChild(summaryElement);
+        articleDetailsContainer.appendChild(authorsList);
       
         // Clear previous article details
         const existingArticleDetailsContainer = document.querySelector('.article-details-container');
@@ -62,26 +66,8 @@ export function handleSubmit(event) {
       }
 
      
-      function displayAuthorStats(author) {
-      
-        fetch(`https://export.arxiv.org/api/query?search_query=au:${(author)}&sortBy=submittedDate&sortOrder=ascending`, {
-          method: 'GET'
-        })
-          .then(response => response.text())
-          .then(data => {
-            // Process the response data
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data, 'text/xml');
-            const totalResults = xmlDoc.getElementsByTagName('opensearch:totalResults')[0].textContent;
-            alert(`Author: ${author}\nTotal Articles: ${totalResults}`);
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-    
 
-        container.appendChild(authorsList);
-      }
+     
 
       const articlesList = document.createElement('ul');
       articlesList.classList.add('articles-list');
