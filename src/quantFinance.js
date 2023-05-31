@@ -1,4 +1,4 @@
-function fetchQuantFinance() {
+export function fetchQuantFinance() {
     
     const qFinanceCategories = ["q-fin.CP",
             "q-fin.EC",

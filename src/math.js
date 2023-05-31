@@ -1,4 +1,4 @@
-function fetchMath() {
+export function fetchMath() {
     
     const mathCategories = ["math.AC",
             "math.AG",
