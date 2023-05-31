@@ -7,6 +7,7 @@ import {fetchElectricalEngineering} from './electricalengineering.js';
 import {fetchStatistics} from './statistics.js';
 import {fetchQuantBio} from './quantBio.js';
 import {fetchQuantFinance} from './quantFinance.js';
+import { handleSubmit } from './searchBar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("its working");
@@ -43,10 +44,27 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchQuantFinance();
     });
 
+
+    document.getElementById('search-button').addEventListener('submit', function() {
+      handleSubmit();
+    });
+
     
+    init(); 
+  
     
   
   });
+
+  function init() {
+    // Add event listener to the form
+    const form = document.getElementById('search-form');
+    form.addEventListener('submit', handleSubmit);
+  
+    // Add event listener to the search button
+    const searchButton = document.getElementById('search-button');
+    searchButton.addEventListener('click', handleSubmit);
+  }
 
  
 

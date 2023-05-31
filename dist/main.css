@@ -80,6 +80,7 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-right: 50px;
+  align-items: center;
 }
 
 #search-input {
@@ -121,7 +122,7 @@ button:hover {
   border-color: orange;
 }
 
-.search-button {
+#search-button {
   width: 100px;
   height: 30px;
   background-color: black;
@@ -173,4 +174,28 @@ ul li {
 .tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+#results {
+  font-family: "Roboto", sans-serif;
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 50px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.result-box {
+  padding: 20px;
+  display: inline-block;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
+}
+
+#search-form {
+  display: flex;
+  flex-direction: column;
 }
