@@ -68,7 +68,7 @@ ul {
 }
 
 body {
-  background-color: deepskyblue;
+  background-color: rgb(38, 45, 96);
 }
 
 .search-bar {
@@ -96,15 +96,14 @@ body {
   padding: 5px;
   margin-top: 400px;
   height: 400px;
-  margin-left: 100px;
 }
 
 button {
   border-radius: 4px;
-  background-color: deepskyblue;
+  background-color: rgb(37, 46, 95);
   color: white;
   width: 90px;
-  border-color: rgb(8, 168, 232);
+  border-color: rgb(39, 45, 97);
   font-family: "Lilita One", cursive;
   height: 90px;
   flex-direction: left;
@@ -137,6 +136,7 @@ ul li {
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .flaticon-icon {

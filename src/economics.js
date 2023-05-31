@@ -1,3 +1,5 @@
+import { createBarChart } from "./barChart";
+
 export function fetchEconomics() {
     
     const economicsCategories = ['econ.EM', 'econ.GN', 'econ.TH']; 
@@ -24,7 +26,7 @@ export function fetchEconomics() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === economicsCategories.length) {
-        createBarECONChart(economicsCategories, totalResults);
+        createBarChart(economicsCategories, totalResults);
         } 
         })
         .catch(function(error) {
@@ -33,50 +35,7 @@ export function fetchEconomics() {
     });
 }
 
-function createBarECONChart(categories, totalResults) {
-  
-  const data = [{
-    x: categories,
-    y: totalResults,
-    type: 'bar',
-    marker: {
-      color: 'orange', // Change this color to your desired color
-      line: {
-        color: 'black', // Set the bar border color
-        width: 1 // Set the bar border width
-      }
-    }
-  }];
-  
-  const layout = {
-    title: 'Number of Articles Published per Subcategory',
-    xaxis: {
-      title: {
-        text: 'Subcategory',
-        font: {
-          family: 'Arial, sans-serif', // Change this to your desired font family
-          size: 18, // Change this to your desired font size
-          color: 'black' // Change this to your desired font color
-        }
-      },
-    },
-    yaxis: {
-      title: {
-        text: 'Article Count',
-        font: {
-          family: 'Arial, sans-serif', // Change this to your desired font family
-          size: 18, // Change this to your desired font size
-          color: 'black' // Change this to your desired font color
-        }
-      },
-    },
-    plot_bgcolor: 'white', // Change this color to your desired background color
-    paper_bgcolor: 'skyblue' // Change this color to your desired background color
-  };
-  
-  Plotly.newPlot('econChartContainer', data, layout);
-  
-}         
+    
 
 
 
