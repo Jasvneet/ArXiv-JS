@@ -63,6 +63,10 @@ h1 {
   justify-content: center;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   background-color: deepskyblue;
 }

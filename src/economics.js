@@ -75,7 +75,11 @@ function createBarECONChart(categories, totalResults) {
   };
   
   Plotly.newPlot('econChartContainer', data, layout);
+  
 }         
+
+
+
 // function createBarChart(categories, totalResults) {
 //     const ctx = document.getElementById('econChart').getContext('2d');
     
