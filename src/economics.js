@@ -5,7 +5,7 @@ export function fetchEconomics() {
     
     // Fetch total results for each category
     economicsCategories.forEach(function(category) {
-      const apiUrl = `http://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
+      const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
         
         fetch(apiUrl)
