@@ -27,15 +27,28 @@ body {
 
 .search-bar {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 50px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
     align-items: center;
+    margin-top: 50px;
+  
    
+}
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+   
+    
 }
 
 
 #search-input {
     margin-right: 10px;
+    padding: 1rem; /* Increase the padding for more height */
+    font-size: 1.2rem; /* Increase the font size for larger text */
+    width: 300px;
 }
 
 .chartContainer {
@@ -65,7 +78,7 @@ button {
     color: white;
     width: 90px;
     border-color: rgb(39, 45, 97);
-    font-family: 'Lilita One', cursive;
+    font-family: 'Roboto', sans-serif;
     height: 90px;
     flex-direction: left;
     border-style: 30px solid skyblue;
@@ -143,20 +156,63 @@ ul li {
     padding: 20px;
     display: flex;
     justify-content: flex-end;
+    flex-direction: column;
+    
 
 }
 
 .result-box {
     padding: 20px;
-    display: inline-block;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
+    display: flex;
     border-radius: 4px;
     width: 100px;
 }
 
-#search-form {
+
+
+.authors-list {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+
+.articles-list {
+    display: flex;
+    justify-content: center;
+}
+
+.article-details-conatiner {
+    display: flex;
     
+}
+
+.article-button {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+
+}
+.articles-list li {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+
+p {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    padding: 30px;
+}
+
+h4 {
+    color: white;
+    font-size: 38px;
+    text-align: left;
+    text-shadow: 0 0 10px black;
+    padding: 30px;
 }
