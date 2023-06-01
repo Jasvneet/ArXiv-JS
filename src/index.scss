@@ -90,11 +90,11 @@ body {
     justify-content: center;
     flex-direction: row;
     padding: 5px;
-    margin-top: 40%;
-    
-    width: 100%;
-    height: 100%;
+    margin-top: 3%;
     flex-wrap: wrap;
+    
+   
+    
     // margin-left: 100px;
     
 }
@@ -286,4 +286,13 @@ h4 {
     width: 80%;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    height: 90px;
+}
+
+.author-button {
+    background-color: rgb(91, 165, 255);
+    color: rgb(48, 11, 90);
+    font-family: 'Robot', sans-serif;
+    font-weight: bold;
+    border-style: 14px solid black;
 }
