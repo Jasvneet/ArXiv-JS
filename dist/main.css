@@ -344,3 +344,29 @@ h4 {
     transform: rotate(360deg);
   }
 }
+.social-links {
+  position: fixed;
+  right: 1%;
+  top: 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fa-brands {
+  color: #eee;
+  font-size: 2em;
+  transition: color 0.5s ease-in-out;
+}
+
+.fa-github {
+  top: 8%;
+}
+
+.fa-linkedin {
+  top: 14%;
+}
+
+.fa-brands:hover {
+  color: rgb(97, 165, 255); /* change color on hover */
+}
