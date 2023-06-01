@@ -1,6 +1,15 @@
 
 
 export function displayAuthorStats(author) {
+  const heatmapContainer = document.getElementById('heatmapContainer');
+  heatmapContainer.innerHTML = ''; // Clear previous article details
+
+
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.classList.add('loading-indicator')
+  loadingIndicator.textContent = 'Loading Data...';
+  heatmapContainer.appendChild(loadingIndicator);
+
   fetch(`https://export.arxiv.org/api/query?search_query=au:${author}&max_results=2000`, {
     method: 'GET'
   })
@@ -81,10 +90,14 @@ export function displayAuthorStats(author) {
         paper_bgcolor: 'rgb(38, 48, 90)'
       };
 
+      heatmapContainer.removeChild(loadingIndicator);
+
       // Plot the heatmap using Plotly
       Plotly.newPlot('heatmapContainer', data1, layout);
+      
     })
     .catch(error => {
       console.error('Error:', error);
+      loadingIndicator.remove();
     });
 }

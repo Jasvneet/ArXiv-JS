@@ -310,3 +310,9 @@ h4 {
   font-weight: bold;
   border-style: 14px solid black;
 }
+
+.loading-indicator {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+}
