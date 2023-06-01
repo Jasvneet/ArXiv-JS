@@ -21,7 +21,7 @@ export function handleSubmit(event) {
       resultsDiv.innerHTML = ''; // Clear previous results
 
       const totalResultsEle = document.createElement('h3');
-      totalResultsEle.textContent = `Showing 10 out of ${totalResult} total articles`;
+      totalResultsEle.textContent = ` Showing only most recent of total: ${totalResult}  articles`;
       resultsDiv.appendChild(totalResultsEle);
 
       const entries = xmlDoc1.getElementsByTagName('entry');
