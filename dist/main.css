@@ -273,4 +273,11 @@ h4 {
   text-align: center;
   color: white;
   font-family: "Roboto", sans-serif;
+  margin-top: 80px;
+}
+
+.authors-heading {
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px black;
 }

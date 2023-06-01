@@ -50,10 +50,17 @@ export function handleSubmit(event) {
         const summaryElement = document.createElement('p');
         summaryElement.classList.add('summary')
         summaryElement.textContent = summary;
+
+        const authorsHeading = document.createElement('h2');
+        authorsHeading.classList.add('authors-heading')
+
+        authorsHeading.textContent = 'Authors';
+       
       
         
         articleDetailsContainer.appendChild(summaryHeading);
         articleDetailsContainer.appendChild(summaryElement);
+        articleDetailsContainer.appendChild(authorsHeading);
         articleDetailsContainer.appendChild(authorsList);
       
         // Clear previous article details
@@ -75,6 +82,8 @@ export function handleSubmit(event) {
 
       const authorsListContainer = document.createElement('div');
       authorsListContainer.classList.add('authors-list-container');
+
+      
 
       for (let i = 0; i < entries.length; i++) {
         const title = entries[i].getElementsByTagName('title')[0].textContent;
