@@ -28,7 +28,11 @@ export function fetchElectricalEngineering() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === eeCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(eeCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = ["Audio and Speech Processing",
+            "Image and Video Processing",
+            "Signal Processing",
+            "Systems and Control"]
+            createBarChart(eeCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {

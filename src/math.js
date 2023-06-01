@@ -59,7 +59,41 @@ export function fetchMath() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === mathCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(mathCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = ["Commutative Algebra",
+            "Algebraic Geometry",
+            "Analysis of PDEs",
+            "Algebraic Topology",
+            "Classical Analysis and ODEs",
+            "Combinatorics",
+            "Category Theory",
+            "Complex Variables",
+            "Differential Geometry",
+            "Dynamical Systems",
+            "Functional Analysis",
+            "General Mathematics",
+            "General Topology",
+            "Group Theory",
+            "Geometric Topology",
+            "History and Overview",
+            "Information Theory",
+            "K-Theory and Homology",
+            "Logic",
+            "Metric Geometry",
+            "Mathematical Physics",
+            "Numerical Analysis",
+            "Number Theory",
+            "Operator Algebras",
+            "Optimization and Control",
+            "Probability",
+            "Quantum Algebra",
+            "Rings and Algebras",
+            "Representation Theory",
+            "Symplectic Geometry",
+            "Spectral Theory",
+            "Statistics Theory"
+          ];
+
+            createBarChart(mathCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {

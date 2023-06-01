@@ -36,7 +36,48 @@ export function fetchComputerScience() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === csCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(csCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = [
+                "Artificial Intelligence",
+                "Hardware Architecture",
+                "Computational Complexity",
+                "Computational Engineering, Finance, and Science",
+                "Computational Geometry",
+                "Computation and Language",
+                "Cryptography and Security",
+                "Computer Vision and Pattern Recognition",
+                "Computers and Society",
+                "Databases",
+                "Distributed, Parallel, and Cluster Computing",
+                "Digital Libraries",
+                "Discrete Mathematics",
+                "Data Structures and Algorithms",
+                "Emerging Technologies",
+                "Formal Languages and Automata Theory",
+                "General Literature",
+                "Graphics",
+                "Computer Science and Game Theory",
+                "Human-Computer Interaction",
+                "Information Retrieval",
+                "Information Theory",
+                "Machine Learning",
+                "Logic in Computer Science",
+                "Multiagent Systems",
+                "Multimedia",
+                "Mathematical Software",
+                "Numerical Analysis",
+                "Neural and Evolutionary Computing",
+                "Networking and Internet Architecture",
+                "Other Computer Science",
+                "Operating Systems",
+                "Performance",
+                "Programming Languages",
+                "Robotics",
+                "Symbolic Computation",
+                "Sound",
+                "Software Engineering",
+                "Social and Information Networks",
+                "Systems and Control"]
+            createBarChart(csCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {

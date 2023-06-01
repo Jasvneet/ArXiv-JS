@@ -27,7 +27,13 @@ export function fetchStatistics() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === statsCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(statsCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = [  "Applications",
+            "Computation",
+            "Methodology",
+            "Machine Learning",
+            "Other Statistics",
+            "Statistics Theory"];
+            createBarChart(statsCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {

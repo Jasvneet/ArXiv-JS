@@ -1,4 +1,4 @@
-export function createBarChart(categories, totalResults, totalArticleCount) {
+export function createBarChart(categories, totalResults, totalArticleCount, fullCategoryNames) {
   
     const data = [{
       x: categories,
@@ -10,7 +10,10 @@ export function createBarChart(categories, totalResults, totalArticleCount) {
           color: 'black', // Set the bar border color
           width: 1 // Set the bar border width
         }
-      }
+      }, 
+      text: fullCategoryNames, // Display full category names inside the bar
+      hovertemplate: '%{text}<br>Article Count: %{y}',
+      
     }];
     
     const layout = {

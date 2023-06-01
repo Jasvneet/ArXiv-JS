@@ -38,7 +38,17 @@ export function fetchQuantBio() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === qBioCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(qBioCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = [ "Biomolecules",
+            "Cell Behavior",
+            "Genomics",
+            "Molecular Networks",
+            "Neurons and Cognition",
+            "Other Quantitative Biology",
+            "Populations and Evolution",
+            "Quantitative Methods",
+            "Subcellular Processes",
+            "Tissues and Organs"];
+            createBarChart(qBioCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {

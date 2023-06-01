@@ -35,7 +35,16 @@ export function fetchQuantFinance() {
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === qFinanceCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
-            createBarChart(qFinanceCategories, totalResults, totalArticleCount);
+            const fullCategoryNames = [ "Computational Finance",
+            "Economics",
+            "General Finance",
+            "Mathematical Finance",
+            "Portfolio Management",
+            "Pricing of Securities",
+            "Risk Management",
+            "Statistical Finance",
+            "Trading and Market Microstructure"];
+            createBarChart(qFinanceCategories, totalResults, totalArticleCount, fullCategoryNames);
         } 
         })
         .catch(function(error) {
