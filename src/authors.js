@@ -4,10 +4,20 @@ export function displayAuthorStats(author) {
   const heatmapContainer = document.getElementById('heatmapContainer');
   heatmapContainer.innerHTML = ''; // Clear previous article details
 
+  const loadingText = document.createElement('div');
+  loadingText.classList.add('loading-text')
+  loadingText.textContent = 'Loading';
 
   const loadingIndicator = document.createElement('div');
-  loadingIndicator.classList.add('loading-indicator')
-  loadingIndicator.textContent = 'Loading Data...';
+  loadingIndicator.classList.add('loading-indicator');
+
+  
+
+  const loadingSymbol = document.createElement('div');
+  loadingSymbol.classList.add('loading-symbol');
+
+  loadingIndicator.appendChild(loadingText);
+  loadingIndicator.appendChild(loadingSymbol);
   heatmapContainer.appendChild(loadingIndicator);
 
   fetch(`https://export.arxiv.org/api/query?search_query=au:${author}&max_results=2000`, {
@@ -101,3 +111,4 @@ export function displayAuthorStats(author) {
       loadingIndicator.remove();
     });
 }
+
