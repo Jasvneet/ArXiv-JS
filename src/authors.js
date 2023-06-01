@@ -66,8 +66,12 @@ export function displayAuthorStats(author) {
           type: 'heatmap',
           colorscale: 'Viridis',
           showscale: true,
-          hovertemplate: `<b>Year: %{x}</b><br>Author: ${author}<br>Articles: %{z}`
-
+          hovertemplate: `<b>Year: %{x}</b><br>Author: ${author}<br>Articles: %{z}`,
+          colorbar: {
+            tickfont: {
+              color: 'white' // Change the color of the numbers on the gradient scale here
+            }
+          }
         }
       ];
 

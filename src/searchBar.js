@@ -48,6 +48,7 @@ export function handleSubmit(event) {
         summaryHeading.textContent = 'Abstract:';
 
         const summaryElement = document.createElement('p');
+        summaryElement.classList.add('summary')
         summaryElement.textContent = summary;
       
         

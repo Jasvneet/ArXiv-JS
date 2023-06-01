@@ -16,8 +16,19 @@
 </head>
 
 <body>
+    <div>
+      <h1> ArXiv Insights </h1>
+    </div>
+  
+
+  <div class="over-view">
+    <div>
+      <p>
+        Enter a Search Term. The ten most recently published articles containing the search term will appear. Once you select your desired article, the article's summary and authors will be displayed. Next, select an author's name to view the number of articles that the selected author has published over the past years. 
+      </p>
+    </div>
     
-  <h1> ArXiv Insights </h1>
+  </div>
 
 <form id="search-form">
     <div class="search-bar">
@@ -35,65 +46,73 @@
   <div id="heatmapContainer"></div>
 
   <div class="container">
-    <ul class="categoryButtons">
-      <li>
-        <button id="economicsButton" class="tooltip"> 
-          <img src="images/economic.png" alt="Icon" class="flaticon-icon">
-          <span class="tooltip-text">Economics</span>
-        </button>
-      </li>
-  
-      <li>
-        <button id="csButton" class="tooltip"> 
-          <img src="images/code.png" alt="Icon" class="flaticon-icon">
-          <span class="tooltip-text">Computer Science</span>
-        </button>
-      </li>
-  
-      <li> 
-        <button id="mathButton" class="tooltip"> 
-          <img src="images/maths.png" alt="Icon" class="flaticon-icon">
-          <span class="tooltip-text">Mathematics</span>
-        </button> 
-      </li>
-  
-      <li> 
-        <button id="quantBioButton" class="tooltip">
-          <img src="images/dna.png" alt="Icon" class="flaticon-icon">
-          <span class="tooltip-text">Quantitative Biology</span>
-        </button>
-      </li>
+    <div>
+      <p>
+        Select a Category to Compare the Number of Articles Published per Subcategory
+      </p>
+    </div>
+    <div>
+      <ul class="categoryButtons">
+        <li>
+          <button id="economicsButton" class="tooltip"> 
+            <img src="images/economic.png" alt="Icon" class="flaticon-icon">
+            <span class="tooltip-text">Economics</span>
+          </button>
+        </li>
+    
+        <li>
+          <button id="csButton" class="tooltip"> 
+            <img src="images/code.png" alt="Icon" class="flaticon-icon">
+            <span class="tooltip-text">Computer Science</span>
+          </button>
+        </li>
+    
+        <li> 
+          <button id="mathButton" class="tooltip"> 
+            <img src="images/maths.png" alt="Icon" class="flaticon-icon">
+            <span class="tooltip-text">Mathematics</span>
+          </button> 
+        </li>
+    
+        <li> 
+          <button id="quantBioButton" class="tooltip">
+            <img src="images/dna.png" alt="Icon" class="flaticon-icon">
+            <span class="tooltip-text">Quantitative Biology</span>
+          </button>
+        </li>
+        
+        <li>
+          <button id="physicsButton" class="tooltip">
+            <img src="images/physics.png" alt="Icon" class="flaticon-icon">
+            <span class="tooltip-text">Physics</span>
+          </button>
+        </li>
+    
+        <li>
+          <button id="quantFinanceButton" class="tooltip"> 
+            <img src="images/economics.png" alt="Icon" class="flaticon-icon"> 
+            <span class="tooltip-text">Quantitative Finance</span>
+          </button>
+        </li>
+    
+        <li> 
+          <button id="statsButton" class="tooltip">
+            <img src="images/analytics.png" alt="Icon" class="flaticon-icon"> 
+            <span class="tooltip-text">Statistics</span>
+          </button>
+        </li>
+       
+        <li>
+          <button id="eeButton" class="tooltip" >  
+            <img src="images/electronic-circuit.png" alt="Icon" class="flaticon-icon"> 
+            <span class="tooltip-text">Electrical Engineering & Systems Science</span>
+            
+          </button>
+        </li>
+       
+      </ul>
       
-      <li>
-        <button id="physicsButton" class="tooltip">
-          <img src="images/physics.png" alt="Icon" class="flaticon-icon">
-          <span class="tooltip-text">Physics</span>
-        </button>
-      </li>
-  
-      <li>
-        <button id="quantFinanceButton" class="tooltip"> 
-          <img src="images/economics.png" alt="Icon" class="flaticon-icon"> 
-          <span class="tooltip-text">Quantitative Finance</span>
-        </button>
-      </li>
-  
-      <li> 
-        <button id="statsButton" class="tooltip">
-          <img src="images/analytics.png" alt="Icon" class="flaticon-icon"> 
-          <span class="tooltip-text">Statistics</span>
-        </button>
-      </li>
-     
-      <li>
-        <button id="eeButton" class="tooltip" >  
-          <img src="images/electronic-circuit.png" alt="Icon" class="flaticon-icon"> 
-          <span class="tooltip-text">Electrical Engineering & Systems Science</span>
-          
-        </button>
-      </li>
-     
-    </ul>
+    </div>
     
   
     <div id="econChartContainer" class="chartContainer">
