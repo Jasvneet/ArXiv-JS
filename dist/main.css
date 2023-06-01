@@ -115,8 +115,9 @@ body {
   height: 1000px;
   width: 1200px;
   padding: 50px;
-  margin-top: 50px;
-  margin-left: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .categoryButtons {

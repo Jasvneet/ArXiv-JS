@@ -52,6 +52,6 @@ export function createBarChart(categories, totalResults) {
       paper_bgcolor: 'rgb(38, 48, 90)' // Change this color to your desired background color
     };
     
-    Plotly.newPlot('econChartContainer', data, layout);
+    Plotly.newPlot('chartContainer', data, layout);
     
   }         
