@@ -58,7 +58,8 @@ export function fetchMath() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === mathCategories.length) {
-        createBarChart(mathCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(mathCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {

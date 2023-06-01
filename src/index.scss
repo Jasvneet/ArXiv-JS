@@ -71,13 +71,15 @@ body {
     width: 300px;
 }
 
-.chartContainer {
+#chartContainer {
    height: 1000px;
    width: 1200px; 
    padding: 50px;
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
+   
   
 }
 
@@ -259,4 +261,21 @@ h4 {
     color: white;
     text-align: center;
     text-shadow: 0 0 10px black;
+}
+
+#total-article-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 50px;
+    margin-top: 50px;
+}
+
+.total-article-count-button {
+    background-color: rgb(224, 157, 14);
+    color: #000;
+    width: 80%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }

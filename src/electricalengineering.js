@@ -27,7 +27,8 @@ export function fetchElectricalEngineering() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === eeCategories.length) {
-        createBarChart(eeCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(eeCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {

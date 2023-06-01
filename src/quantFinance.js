@@ -34,7 +34,8 @@ export function fetchQuantFinance() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === qFinanceCategories.length) {
-        createBarChart(qFinanceCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(qFinanceCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {
@@ -46,19 +47,3 @@ export function fetchQuantFinance() {
 
 
             
-//             totalSum += totalResults;
-            
-//             // Handle individual category total results
-//             // console.log(`Total Results for ${category}:`, totalResults);
-//         })
-//         .catch(function(error) {
-//             // Handle error
-//             console.log(`Error fetching ${category} results:`, error);
-//         });
-//     });
-    
-//     // Handle total sum of all categories
-//     setTimeout(function() {
-//         console.log('Total Sum of Results:', totalSum);
-//     }, 10000);
-// }

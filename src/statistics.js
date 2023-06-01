@@ -26,7 +26,8 @@ export function fetchStatistics() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === statsCategories.length) {
-        createBarChart(statsCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(statsCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {
@@ -36,19 +37,3 @@ export function fetchStatistics() {
 }
             
       
-//             totalSum += totalResults;
-            
-//             // Handle individual category total results
-//             // console.log(`Total Results for ${category}:`, totalResults);
-//         })
-//         .catch(function(error) {
-//             // Handle error
-//             console.log(`Error fetching ${category} results:`, error);
-//         });
-//     });
-    
-//     // Handle total sum of all categories
-//     setTimeout(function() {
-//         console.log('Total Sum of Results:', totalSum);
-//     }, 10000);
-// }

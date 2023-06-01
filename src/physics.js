@@ -28,7 +28,8 @@ export function fetchPhysics() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === physicsCategories.length) {
-        createBarChart(physicsCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(physicsCategories, totalResults, totalArticleCount);
         }
         })
         .catch(function(error) {

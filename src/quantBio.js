@@ -37,7 +37,8 @@ export function fetchQuantBio() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === qBioCategories.length) {
-        createBarChart(qBioCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(qBioCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {

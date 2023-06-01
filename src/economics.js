@@ -26,7 +26,8 @@ export function fetchEconomics() {
       
 // Call the function to create the bar chart after all categories have been fetched
         if (totalResults.length === economicsCategories.length) {
-        createBarChart(economicsCategories, totalResults);
+            const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
+            createBarChart(economicsCategories, totalResults, totalArticleCount);
         } 
         })
         .catch(function(error) {
