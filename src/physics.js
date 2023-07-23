@@ -103,49 +103,10 @@ export function fetchPhysics() {
 
 
 
-// totalSum += totalResults;
-            
-//             // Handle individual category total results
-//             // console.log(`Total Results for ${category}:`, totalResults);
-//         })
-//         .catch(function(error) {
-//             // Handle error
-//             console.log(`Error fetching ${category} results:`, error);
-//         });
-//     });
-    
-//     // Handle total sum of all categories
-//     setTimeout(function() {
-//         console.log('Total Sum of Results:', totalSum);
-//     }, 20000);
-// }
-
-
-// for visualizations 
 
 
 
 
 
 
-//   
-// fetch('https://export.arxiv.org/api/query?search_query=cat:physics.acc-ph')
-//   .then(function(response) {
-//     return response.text();
-//   })
-//   .then(function(responseText) {
-//     // Parse the XML response
-//     const parser = new DOMParser();
-//     const xmlDoc = parser.parseFromString(responseText, 'text/xml');
-    
-//     // Extract the total results
-//     const totalResultsElement = xmlDoc.getElementsByTagName('opensearch:totalResults')[0];
-//     const totalResults = totalResultsElement.textContent;
-    
-//     // Handle successful response
-//     console.log('Total Results:', totalResults);
-//   })
-//   .catch(function(error) {
-//     // Handle error
-//     console.log('Error:', error);
-//   });
+

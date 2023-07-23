@@ -17,6 +17,8 @@ export function handleSubmit(event) {
       const xmlDoc1 = parser.parseFromString(data, 'text/xml');
       const totalResultsElement = xmlDoc1.getElementsByTagName('opensearch:totalResults')[0];
       const totalResult = parseInt(totalResultsElement.textContent);
+
+      
       const resultsDiv = document.getElementById('results');
       resultsDiv.innerHTML = ''; // Clear previous results
 
@@ -73,10 +75,6 @@ export function handleSubmit(event) {
         resultsDiv.appendChild(articleDetailsContainer);
       }
 
-     
-
-     
-
       const articlesList = document.createElement('ul');
       articlesList.classList.add('articles-list');
 
@@ -113,49 +111,5 @@ export function handleSubmit(event) {
     
 }
 
-// for (let i = 0; i < entries.length; i++) {
-  //   const title = entries[i].getElementsByTagName('title')[0].textContent;
-  //   const authors = Array.from(entries[i].getElementsByTagName('author')).map(author => author.getElementsByTagName('name')[0].textContent);
 
-
-  //   const articleTitleItem = document.createElement('li');
-  //   const articleTitleButton = document.createElement('button');
-  //   articleTitleButton.textContent = title;
-  //   articleTitleButton.addEventListener('click', () => displayAuthors(authors, articleTitleItem));
-
-  //   articleTitleItem.appendChild(articleTitleButton);
-  //   articlesList.appendChild(articleTitleItem);
-    
-  // }
-
-
-
-    
-    // function displayAuthors(authors, container) {
-      //   container.innerHTML = ''; // Clear previous authors
-
-      //   const authorsList = document.createElement('ul');
-      //   authors.forEach(author => {
-      //     const authorItem = document.createElement('li');
-      //     authorItem.textContent = author;
-      //     authorsList.appendChild(authorItem);
-      //   });
-    
- // function displayAuthors(authors, container) {
-      //   container.innerHTML = ''; // Clear previous authors
-  
-      //   const authorsList = document.createElement('ul');
-      //   authorsList.classList.add('authors-list');
-      //   authors.forEach(author => {
-      //     const authorItem = document.createElement('li');
-      //     const authorButton = document.createElement('button');
-      //     authorButton.textContent = author;
-      //     authorButton.addEventListener('click', () => displayAuthorStats(author));
-  
-      //     authorItem.appendChild(authorButton);
-      //     authorsList.appendChild(authorItem);
-      //   });
-  
-      //   container.appendChild(authorsList);
-      // }
       

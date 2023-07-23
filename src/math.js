@@ -104,19 +104,3 @@ export function fetchMath() {
             
 
             
-//             totalSum += totalResults;
-            
-//             // Handle individual category total results
-//             // console.log(`Total Results for ${category}:`, totalResults);
-//         })
-//         .catch(function(error) {
-//             // Handle error
-//             console.log(`Error fetching ${category} results:`, error);
-//         });
-//     });
-    
-//     // Handle total sum of all categories
-//     setTimeout(function() {
-//         console.log('Total Sum of Results:', totalSum);
-//     }, 10000);
-// }
