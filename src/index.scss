@@ -207,6 +207,8 @@ ul li {
 .authors-list {
     display: flex;
     justify-content: center;
+    width: 80vw;
+    flex-wrap: wrap;
 }
 
 
@@ -217,8 +219,10 @@ ul li {
     width: 80vw;
 }
 
-.article-details-conatiner {
+.article-details-container {
     display: flex;
+    width: 80vw;
+    flex-direction: column;
     
 }
 

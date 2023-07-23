@@ -23,7 +23,7 @@ export function handleSubmit(event) {
       resultsDiv.innerHTML = ''; 
 
       const totalResultsEle = document.createElement('h3');
-      totalResultsEle.textContent = ` Showing only most recent of total: ${totalResult}  articles`;
+      totalResultsEle.textContent = ` Most recently published articles of total: ${totalResult} articles`;
       resultsDiv.appendChild(totalResultsEle);
 
       const entries = xmlDoc1.getElementsByTagName('entry');
@@ -65,7 +65,6 @@ export function handleSubmit(event) {
         articleDetailsContainer.appendChild(authorsHeading);
         articleDetailsContainer.appendChild(authorsList);
       
-        // Clear previous article details
         const existingArticleDetailsContainer = document.querySelector('.article-details-container');
         if (existingArticleDetailsContainer) {
           existingArticleDetailsContainer.remove();
