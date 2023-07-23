@@ -1,26 +1,26 @@
 import { displayAuthorStats } from "./authors";
 
 export function handleSubmit(event) {
-  event.preventDefault(); // Prevent the form from submitting
+  event.preventDefault(); 
 
   const searchTerm = document.getElementById('search-input').value;
-  const max = 10 // Get the search term
+  const max = 20 
 
-  // Send a request to the arXiv API
+
   fetch(`https://export.arxiv.org/api/query?search_query=ti:${searchTerm}&sortBy=submittedDate&sortOrder=descending&max_results=${max}`, {
     method: 'GET'
   })
     .then(response => response.text())
     .then(data => {
-      // Process the response data
+   
       const parser = new DOMParser();
       const xmlDoc1 = parser.parseFromString(data, 'text/xml');
       const totalResultsElement = xmlDoc1.getElementsByTagName('opensearch:totalResults')[0];
       const totalResult = parseInt(totalResultsElement.textContent);
 
-      
+
       const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = ''; // Clear previous results
+      resultsDiv.innerHTML = ''; 
 
       const totalResultsEle = document.createElement('h3');
       totalResultsEle.textContent = ` Showing only most recent of total: ${totalResult}  articles`;
