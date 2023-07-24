@@ -1,8 +1,17 @@
+function createHeatmapContainer() {
+  const heatmapContainer = document.createElement('div');
+  heatmapContainer.id = 'heatmapContainer'; 
+  heatmapContainer.classList.add('heatmapContainer');
 
+  document.body.appendChild(heatmapContainer);
+  
+  return heatmapContainer;
+}
 
 export function displayAuthorStats(author) {
-  const heatmapContainer = document.getElementById('heatmapContainer');
-  heatmapContainer.innerHTML = ''; // Clear previous article details
+  const heatmapContainer = createHeatmapContainer();
+
+  heatmapContainer.innerHTML = ''; 
 
   const loadingText = document.createElement('div');
   loadingText.classList.add('loading-text')

@@ -1,5 +1,19 @@
 import { displayAuthorStats } from "./authors";
 
+let previousState = null;
+
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
+
 export function handleSubmit(event) {
   event.preventDefault(); 
 
@@ -18,9 +32,21 @@ export function handleSubmit(event) {
       const totalResultsElement = xmlDoc1.getElementsByTagName('opensearch:totalResults')[0];
       const totalResult = parseInt(totalResultsElement.textContent);
 
+      storePreviousState();
+      document.body.innerHTML = '';
 
-      const resultsDiv = document.getElementById('results');
+      const backButton = document.createElement('button');
+      backButton.classList.add('back-button');
+      backButton.textContent = 'Back to Search';
+      backButton.addEventListener('click', restorePreviousState);
+
+      document.body.appendChild(backButton);
+
+      const resultsDiv = document.createElement('div');
+      resultsDiv.id = 'results';
       resultsDiv.innerHTML = ''; 
+
+
 
       const totalResultsEle = document.createElement('h3');
       totalResultsEle.textContent = ` Most recently published articles of total: ${totalResult} articles`;
@@ -99,7 +125,8 @@ export function handleSubmit(event) {
       }
       
       resultsDiv.appendChild(articlesList);
-      resultsDiv.appendChild(authorsListContainer);
+      // resultsDiv.appendChild(authorsListContainer);
+      document.body.appendChild(resultsDiv);
       
     })
     .catch(error => {

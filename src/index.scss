@@ -178,6 +178,11 @@ ul li {
     opacity: 1;
 }
 
+.back-button {
+    width: 10vw;
+    margin-top: 10vw;
+}
+
 #results {
     font-family: 'Roboto', sans-serif;
     text-align: right;
@@ -263,7 +268,7 @@ h4 {
     padding: 30px;
 }
 
-#heatmapContainer {
+.heatmapContainer {
     padding: 50px;
     display: flex;
     justify-content: center;
