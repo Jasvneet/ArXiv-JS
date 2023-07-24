@@ -12,8 +12,7 @@ export function fetchQuantFinance() {
             "q-fin.ST",
             "q-fin.TR"]; 
     let totalResults = [];
-    
-    // Fetch total results for each category
+   
     qFinanceCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
@@ -30,9 +29,9 @@ export function fetchQuantFinance() {
             const totalResult = parseInt(totalResultsElement.textContent);
 
             totalResults.push(totalResult);
-            console.log(totalResults)
+            // console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === qFinanceCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = [ "Computational Finance",

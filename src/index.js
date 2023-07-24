@@ -11,10 +11,10 @@ import { handleSubmit } from './searchBar.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("its working");
+    // console.log("its working");
 
     document.getElementById('economicsButton').addEventListener('click', function() {
-      
+
       fetchEconomics();
     });
 
@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function init() {
-    // Add event listener to the form
+
     const form = document.getElementById('search-form');
     form.addEventListener('submit', handleSubmit);
   
-    // Add event listener to the search button
+
     const searchButton = document.getElementById('search-button');
     searchButton.addEventListener('click', handleSubmit);
   }

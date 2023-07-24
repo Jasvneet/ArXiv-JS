@@ -13,7 +13,7 @@ export function fetchComputerScience() {
         'cs.SC', 'cs.SD', 'cs.SE', 'cs.SI', 'cs.SY']; 
     let totalResults = [];
     
-    // Fetch total results for each category
+  
     csCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
@@ -31,9 +31,9 @@ export function fetchComputerScience() {
 
 
             totalResults.push(totalResult);
-            console.log(totalResults)
+            // console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === csCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = [
