@@ -8,6 +8,12 @@ ArXiv is an online repository that houses a wide range of scientific research pa
 
 
 
+### Home Page 
+
+![HomeIMG](images/ArXiv-HomePage.png)
+
+
+
 
 # Functionality
 
