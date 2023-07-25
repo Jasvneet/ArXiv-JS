@@ -6,6 +6,7 @@ ArXiv Insights is a data visualization tool that allows users to compare article
 
 ArXiv is an online repository that houses a wide range of scientific research papers across disciplines. It serves as a platform for researchers to share their preprints before formal peer review and publication. With a vast collection of freely accessible papers, ArXiv enables researchers, students, and academics to stay informed about the latest developments in their fields and facilitates collaboration. 
 
+Live Link: https://jasvneet.github.io/ArXiv-JS/
 
 
 ### Home Page 
