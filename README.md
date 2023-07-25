@@ -52,6 +52,23 @@ In addition, this project will include:
 
 - A search bar that allows the user to search for an article, and filter menu to refine results. 
 
+# Dive Deeper 
+
+<details open>
+<summary>Fetching Category Data:</summary>
+<br>
+This function fetches data from the Arxiv API for different economics categories, calculates the total number of articles in each category, and then uses the obtained data to create a bar chart to visualize the information. 
+<br>
+<br>
+
+![Screenshot](images/ArXiv-EconCode.png)
+</details>
+
+<br>
+<br>
+
+
+
 # Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:

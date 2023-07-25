@@ -5,7 +5,7 @@ export function fetchEconomics() {
     const economicsCategories = ['econ.EM', 'econ.GN', 'econ.TH']; 
     let totalResults = [];
     
-    // Fetch total results for each category
+  
     economicsCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
@@ -24,7 +24,7 @@ export function fetchEconomics() {
             totalResults.push(totalResult);
             console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === economicsCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = ['Econometrics', 'General Economics', 'Theoretical Economics'];

@@ -34,7 +34,7 @@ export function displayAuthorStats(author) {
   })
     .then(response => response.text())
     .then(data => {
-      // Process the response data
+   
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(data, 'text/xml');
       const entries = xmlDoc.getElementsByTagName('entry');
@@ -51,7 +51,7 @@ export function displayAuthorStats(author) {
       const years = Object.keys(yearsCount);
       const counts = Object.values(yearsCount);
 
-      // Prepare data for the heatmap
+
       const data1 = [
         {
           x: years,
