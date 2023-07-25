@@ -61,7 +61,7 @@ This function fetches data from the Arxiv API for different economics categories
 <br>
 <br>
 
-![Screenshot](images/ArXiv-EconCode.png)
+![ArXivIMG](images/ArXiv-EconCode.png)
 </details>
 
 <br>
