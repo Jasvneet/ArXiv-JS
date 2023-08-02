@@ -49,12 +49,22 @@ export function handleSubmit(event) {
 
 
       const totalResultsEle = document.createElement('h3');
+      totalResultsEle.classList.add('results-heading')
       totalResultsEle.textContent = ` Most recently published articles of total: ${totalResult} articles`;
       resultsDiv.appendChild(totalResultsEle);
 
       const entries = xmlDoc1.getElementsByTagName('entry');
       
       function displayArticleDetails(authors, summary) {
+        document.body.innerHTML = '';
+
+
+      const backButton = document.createElement('button');
+      backButton.classList.add('back-button');
+      backButton.textContent = 'Back to Search';
+      backButton.addEventListener('click', restorePreviousState);
+      document.body.appendChild(backButton);
+
         const articleDetailsContainer = document.createElement('div');
         articleDetailsContainer.classList.add('article-details-container');
       
@@ -91,13 +101,7 @@ export function handleSubmit(event) {
         articleDetailsContainer.appendChild(authorsHeading);
         articleDetailsContainer.appendChild(authorsList);
       
-        const existingArticleDetailsContainer = document.querySelector('.article-details-container');
-        if (existingArticleDetailsContainer) {
-          existingArticleDetailsContainer.remove();
-        }
-      
-        const resultsDiv = document.getElementById('results');
-        resultsDiv.appendChild(articleDetailsContainer);
+        document.body.appendChild(articleDetailsContainer);
       }
 
       const articlesList = document.createElement('ul');

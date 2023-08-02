@@ -33,6 +33,7 @@ h1 {
    display: flex;
 
 
+
   
 }
    
@@ -93,9 +94,6 @@ body {
     padding: 5px;
     margin-top: 3%;
     flex-wrap: wrap;
-    
-   
-    
     // margin-left: 100px;
     
 }
@@ -183,6 +181,15 @@ ul li {
     margin-top: 10vw;
 }
 
+.results-heading {
+    color: white;
+    font-size: 2vh;
+    width: 30vw;
+    text-align: left;
+    margin-left: auto;
+    margin-right: 3vw;
+}
+
 #results {
     font-family: 'Roboto', sans-serif;
     text-align: right;
@@ -236,6 +243,10 @@ ul li {
     width: 12vw;
     text-align: left;
     overflow: hidden;
+    font-size: 2vh;
+    background-color: black;
+    padding: .8vw;
+  
 
 }
 .articles-list li {
