@@ -8,13 +8,14 @@ import {fetchStatistics} from './statistics.js';
 import {fetchQuantBio} from './quantBio.js';
 import {fetchQuantFinance} from './quantFinance.js';
 import { handleSubmit } from './searchBar.js';
+import { createBarChart } from './barChart.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
     // console.log("its working");
 
     document.getElementById('economicsButton').addEventListener('click', function() {
-
+   
       fetchEconomics();
     });
 

@@ -14,8 +14,7 @@ export function fetchQuantBio() {
             "q-bio.SC",
             "q-bio.TO"]; 
     let totalResults = [];
-    
-    // Fetch total results for each category
+ 
     qBioCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
         
@@ -35,7 +34,7 @@ export function fetchQuantBio() {
             totalResults.push(totalResult);
             console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === qBioCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = [ "Biomolecules",

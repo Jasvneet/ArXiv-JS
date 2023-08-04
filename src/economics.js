@@ -1,7 +1,10 @@
 import { createBarChart } from "./barChart";
 
+
+  
 export function fetchEconomics() {
-    
+
+ 
     const economicsCategories = ['econ.EM', 'econ.GN', 'econ.TH']; 
     let totalResults = [];
     
@@ -29,13 +32,17 @@ export function fetchEconomics() {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = ['Econometrics', 'General Economics', 'Theoretical Economics'];
             createBarChart(economicsCategories, totalResults, totalArticleCount, fullCategoryNames);
+         
         } 
+       
         })
         .catch(function(error) {
         console.log('Error:', error);
+  
         });
     });
 }
+
 
     
 
