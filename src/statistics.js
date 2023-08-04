@@ -1,7 +1,27 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 
 export function fetchStatistics() {
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     
     const statsCategories = ['stat.AP', 'stat.CO', 'stat.ME', 'stat.ML', 'stat.OT', 'stat.TH']; 
     let totalResults = [];
@@ -33,7 +53,15 @@ export function fetchStatistics() {
             "Machine Learning",
             "Other Statistics",
             "Statistics Theory"];
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
+            
             createBarChart(statsCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
+
         } 
         })
         .catch(function(error) {

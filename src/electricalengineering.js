@@ -1,7 +1,27 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 
 export function fetchElectricalEngineering() {
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     
     const eeCategories = ["eess.AS", "eess.IV", "eess.SP", "eess.SY"]; 
     let totalResults = [];
@@ -31,8 +51,15 @@ export function fetchElectricalEngineering() {
             const fullCategoryNames = ["Audio and Speech Processing",
             "Image and Video Processing",
             "Signal Processing",
-            "Systems and Control"]
-            createBarChart(eeCategories, totalResults, totalArticleCount, fullCategoryNames);
+            "Systems and Control"];
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
+            createBarChart('Electrical Engineering', eeCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
+
         } 
         })
         .catch(function(error) {

@@ -1,8 +1,27 @@
 import { createBarChart } from "./barChart";
 
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 export function fetchComputerScience() {
-    
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     const csCategories = ['cs.AI', 'cs.AR', 'cs.CC', 'cs.CE', 'cs.CG',
         'cs.CL', 'cs.CR', 'cs.CV', 'cs.CY', 'cs.DB',
         'cs.DC', 'cs.DL', 'cs.DM', 'cs.DS', 'cs.ET',
@@ -76,8 +95,14 @@ export function fetchComputerScience() {
                 "Sound",
                 "Software Engineering",
                 "Social and Information Networks",
-                "Systems and Control"]
-            createBarChart(csCategories, totalResults, totalArticleCount, fullCategoryNames);
+                "Systems and Control"];
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
+            createBarChart('Computer Science', csCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
         } 
         })
         .catch(function(error) {

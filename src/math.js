@@ -1,7 +1,26 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 export function fetchMath() {
-    
+  storePreviousState()
+  document.body.innerHTML = '';
+  const backButton = document.createElement('button');
+  backButton.classList.add('back-button');
+  backButton.textContent = 'Back to Home';
+  backButton.addEventListener('click', restorePreviousState);
+
+  document.body.appendChild(backButton);
     const mathCategories = ["math.AC",
             "math.AG",
             "math.AP",
@@ -36,7 +55,7 @@ export function fetchMath() {
             "math.ST"]; 
     let totalResults = [];
     
-    // Fetch total results for each category
+
     mathCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
       
@@ -56,7 +75,7 @@ export function fetchMath() {
             totalResults.push(totalResult);
             console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === mathCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = ["Commutative Algebra",
@@ -93,7 +112,14 @@ export function fetchMath() {
             "Statistics Theory"
           ];
 
+          const chartContainer = document.createElement('div');
+          chartContainer.id = 'chartContainer';
+          document.body.appendChild(chartContainer);
+          chartContainer.innerHTML = ''; 
+
             createBarChart(mathCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
+
         } 
         })
         .catch(function(error) {

@@ -1,13 +1,32 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 export function fetchPhysics() {
-    console.log('Physics')
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     const physicsCategories = ['astro-ph.CO', 'astro-ph.EP', 'astro-ph.GA', 'astro-ph.HE', 'astro-ph.IM', 'astro-ph.SR', 'cond-mat.dis-nn', 'cond-mat.mes-hall', 'cond-mat.mtrl-sci', 'cond-mat.other', 'cond-mat.quant-gas', 'cond-mat.soft', 'cond-mat.stat-mech','cond-mat.str-el', 'cond-mat.supr-con', 'gr-qc',  'hep-ex', 'hep-lat', 'hep-ph', 'hep-th', 'math-ph', 'nlin.AO', 'nlin.CD', 'nlin.CG', 'nlin.PS', 'nlin.SI', 'nucl-ex', 'nucl-th', 'physics.acc-ph', 'physics.ao-ph', 'physics.app-ph', 'physics.atm-clus', 'physics.atom-ph', 'physics.bio-ph', 'physics.chem-ph', 'physics.class-ph', 'physics.comp-ph', 'physics.data-an', 'physics.ed-ph', 'physics.flu-dyn', 'physics.gen-ph', 'physics.geo-ph', 'physics.hist-ph', 'physics.ins-det', 'physics.med-ph', 'physics.optics', 'physics.plasm-ph', 'physics.pop-ph', 'physics.soc-ph', 'physics.space-ph', 'quant-ph']; 
 
 
     let totalResults = [];
     
-    // Fetch total results for each category
+
     physicsCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
 
@@ -26,7 +45,7 @@ export function fetchPhysics() {
             totalResults.push(totalResult);
             console.log(totalResults)
       
-// Call the function to create the bar chart after all categories have been fetched
+
         if (totalResults.length === physicsCategories.length) {
             const totalArticleCount = totalResults.reduce((acc, curr) => acc + curr, 0);
             const fullCategoryNames = [  "Cosmology and Nongalactic Astrophysics",
@@ -81,7 +100,15 @@ export function fetchPhysics() {
             "Space Physics",
             "Quantum Physics"
             ];
+
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
             createBarChart(physicsCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
+
         }
         })
         .catch(function(error) {

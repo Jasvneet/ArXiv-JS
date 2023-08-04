@@ -1,4 +1,6 @@
-export function createBarChart( categories, totalResults, totalArticleCount, fullCategoryNames) {
+
+
+export function createBarChart( category, categories, totalResults, totalArticleCount, fullCategoryNames) {
   
     const data = [{
       x: categories,
@@ -57,19 +59,41 @@ export function createBarChart( categories, totalResults, totalArticleCount, ful
     const chartContainer = document.getElementById('chartContainer');
     chartContainer.innerHTML = '';
 
+    const loadingIndicator = createLoadingIndicator();
+    chartContainer.appendChild(loadingIndicator);
+
+  
     
 
-    const totalArticleCountDiv = document.getElementById('total-article-count');
+    const totalArticleCountDiv = document.createElement('total-article-count');
+    totalArticleCountDiv.id = 'total-article-count'
     totalArticleCountDiv.innerHTML = '';
     const totalArticleCountButton = document.createElement('button');
-    totalArticleCountButton.textContent = `Category Total: ${totalArticleCount} articles`;
+    totalArticleCountButton.textContent = `${category} Total: ${totalArticleCount} articles`;
     totalArticleCountButton.classList.add('total-article-count-button');
 
-
+  document.body.appendChild(totalArticleCountDiv)
   totalArticleCountDiv .appendChild(totalArticleCountButton);
 
     
-
-    Plotly.newPlot('chartContainer', data, layout);
+  Plotly.newPlot('chartContainer', data, layout);
+  chartContainer.removeChild(loadingIndicator);
     
   }         
+
+  function createLoadingIndicator() {
+    const loadingText = document.createElement('div');
+    loadingText.classList.add('loading-text');
+    loadingText.textContent = 'Loading';
+  
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.classList.add('loading-indicator');
+  
+    const loadingSymbol = document.createElement('div');
+    loadingSymbol.classList.add('loading-symbol');
+  
+    loadingIndicator.appendChild(loadingText);
+    loadingIndicator.appendChild(loadingSymbol);
+  
+    return loadingIndicator;
+  }

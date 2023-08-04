@@ -1,7 +1,27 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
+
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 
 export function fetchQuantFinance() {
-    
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     const qFinanceCategories = ["q-fin.CP",
             "q-fin.EC",
             "q-fin.GN",
@@ -12,6 +32,7 @@ export function fetchQuantFinance() {
             "q-fin.ST",
             "q-fin.TR"]; 
     let totalResults = [];
+    // const loadingIndicator = createLoadingIndicator();
    
     qFinanceCategories.forEach(function(category) {
       const apiUrl = `https://export.arxiv.org/api/query?search_query=cat:${category}&start=0&max_results=1`;
@@ -43,15 +64,26 @@ export function fetchQuantFinance() {
             "Risk Management",
             "Statistical Finance",
             "Trading and Market Microstructure"];
-            createBarChart(qFinanceCategories, totalResults, totalArticleCount, fullCategoryNames);
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
+
+            createBarChart('Quantitative Finance', qFinanceCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
+           
         } 
+
         })
         .catch(function(error) {
         console.log('Error:', error);
+  
         });
     });
 }
-            
+
+    
 
 
             

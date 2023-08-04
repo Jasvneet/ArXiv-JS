@@ -1,6 +1,26 @@
 import { createBarChart } from "./barChart";
+let previousState = null;
 
+
+function storePreviousState() {
+  previousState = document.body.innerHTML;
+}
+
+
+function restorePreviousState() {
+  if (previousState) {
+    document.body.innerHTML = previousState;
+  }
+}
 export function fetchQuantBio() {
+    storePreviousState()
+    document.body.innerHTML = '';
+    const backButton = document.createElement('button');
+    backButton.classList.add('back-button');
+    backButton.textContent = 'Back to Home';
+    backButton.addEventListener('click', restorePreviousState);
+
+    document.body.appendChild(backButton);
     
     const qBioCategories = [
             "q-bio.BM",
@@ -47,7 +67,13 @@ export function fetchQuantBio() {
             "Quantitative Methods",
             "Subcellular Processes",
             "Tissues and Organs"];
-            createBarChart(qBioCategories, totalResults, totalArticleCount, fullCategoryNames);
+
+            const chartContainer = document.createElement('div');
+            chartContainer.id = 'chartContainer';
+            document.body.appendChild(chartContainer);
+            chartContainer.innerHTML = ''; 
+            createBarChart('Quantitative Biology', qBioCategories, totalResults, totalArticleCount, fullCategoryNames);
+            document.body.appendChild(chartContainer);
         } 
         })
         .catch(function(error) {
