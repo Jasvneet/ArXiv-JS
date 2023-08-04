@@ -106,7 +106,7 @@ export function fetchPhysics() {
             chartContainer.id = 'chartContainer';
             document.body.appendChild(chartContainer);
             chartContainer.innerHTML = ''; 
-            createBarChart(physicsCategories, totalResults, totalArticleCount, fullCategoryNames);
+            createBarChart('Physics', physicsCategories, totalResults, totalArticleCount, fullCategoryNames);
             document.body.appendChild(chartContainer);
 
         }

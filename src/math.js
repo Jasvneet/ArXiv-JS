@@ -117,7 +117,7 @@ export function fetchMath() {
           document.body.appendChild(chartContainer);
           chartContainer.innerHTML = ''; 
 
-            createBarChart(mathCategories, totalResults, totalArticleCount, fullCategoryNames);
+            createBarChart('Mathematics', mathCategories, totalResults, totalArticleCount, fullCategoryNames);
             document.body.appendChild(chartContainer);
 
         } 

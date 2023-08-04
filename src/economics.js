@@ -53,7 +53,7 @@ export function fetchEconomics() {
             chartContainer.id = 'chartContainer';
             document.body.appendChild(chartContainer);
             chartContainer.innerHTML = ''; 
-            createBarChart(economicsCategories, totalResults, totalArticleCount, fullCategoryNames);
+            createBarChart('Economics', economicsCategories, totalResults, totalArticleCount, fullCategoryNames);
             document.body.appendChild(chartContainer);
 
          

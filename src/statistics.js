@@ -59,7 +59,7 @@ export function fetchStatistics() {
             document.body.appendChild(chartContainer);
             chartContainer.innerHTML = ''; 
             
-            createBarChart(statsCategories, totalResults, totalArticleCount, fullCategoryNames);
+            createBarChart('Statistics', statsCategories, totalResults, totalArticleCount, fullCategoryNames);
             document.body.appendChild(chartContainer);
 
         } 
